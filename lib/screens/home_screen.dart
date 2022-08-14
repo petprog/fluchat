@@ -38,6 +38,7 @@ class HomeScreen extends StatelessWidget {
       builder: (BuildContext context, int value, _) {
         return Scaffold(
           appBar: AppBar(
+            iconTheme: Theme.of(context).iconTheme,
             centerTitle: true,
             backgroundColor: Colors.transparent,
             elevation: 0,
