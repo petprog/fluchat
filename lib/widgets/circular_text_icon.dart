@@ -6,13 +6,15 @@ class CircularTextIcon extends StatelessWidget {
       required this.iconBackground,
       required this.iconSize,
       required this.textIconSize,
-      required this.textIconColor})
+      required this.textIconColor,
+      required this.text})
       : super(key: key);
 
   final Color iconBackground;
   final double iconSize;
   final double textIconSize;
   final Color textIconColor;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class CircularTextIcon extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          '1',
+          text,
           style: TextStyle(
             fontSize: textIconSize,
             color: textIconColor,
