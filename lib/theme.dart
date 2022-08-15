@@ -8,7 +8,7 @@ abstract class AppColors {
   static const textLigth = Color(0xFFF5F5F5);
   static const textFaded = Color(0xFF9899A5);
   static const iconLight = Color(0xFFB1B4C0);
-  static const iconDark = Color(0xFFB1B3C1);
+  static const iconDark = Color(0xFF53585A);
   static const textHighlight = secondary;
   static const cardLight = Color(0xFFF9FAFE);
   static const cardDark = Color(0xFF303334);
@@ -43,12 +43,14 @@ abstract class AppTheme {
         ),
         iconTheme: const IconThemeData(color: AppColors.iconDark),
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: accentColor),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(color: AppColors.textDark),
+        ),
       );
 
   /// Dark theme and its settings.
   static ThemeData dark() => ThemeData(
         brightness: Brightness.dark,
-        accentColor: accentColor,
         visualDensity: visualDensity,
         textTheme:
             GoogleFonts.interTextTheme().apply(bodyColor: AppColors.textLigth),
@@ -58,6 +60,11 @@ abstract class AppTheme {
         primaryTextTheme: const TextTheme(
           headline6: TextStyle(color: AppColors.textLigth),
         ),
-        iconTheme: const IconThemeData(color: AppColors.iconLight),
+        iconTheme: const IconThemeData(
+          color: AppColors.iconLight,
+        ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(color: AppColors.textLigth),
+        ),
       );
 }

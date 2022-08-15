@@ -1,6 +1,5 @@
 import 'package:chatter/pages/pages.dart';
 import 'package:chatter/theme.dart';
-import 'package:chatter/widgets/glowing_action_button.dart';
 import 'package:flutter/material.dart';
 
 import '../helpers.dart';

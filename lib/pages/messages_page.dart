@@ -4,6 +4,7 @@ import 'package:chatter/widgets/circular_text_icon.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
+import 'package:chatter/screens/screens.dart';
 
 import '../models/models.dart';
 import '../widgets/widgets.dart';
@@ -51,7 +52,9 @@ class _MessageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(ChatScreen.route(messageData));
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(
           horizontal: 8,
