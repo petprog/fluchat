@@ -26,9 +26,6 @@ class HomeScreen extends StatelessWidget {
       'title': 'Contacts',
       'page': ContactsPage(),
     },
-    // NotificationsPage(),
-    // CallsPage(),
-    // ContactsPage(),
   ];
 
   @override
@@ -44,7 +41,9 @@ class HomeScreen extends StatelessWidget {
             elevation: 0,
             title: Text(
               pages[value]['title'] as String,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
             actions: [
               Padding(
@@ -87,62 +86,78 @@ class _BottomNavigationBar extends StatefulWidget {
 class _BottomNavigationBarState extends State<_BottomNavigationBar> {
   var selectedIndex = 0;
   void handleItemSelected(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
+    setState(
+      () {
+        selectedIndex = index;
+      },
+    );
     widget.onItemSelected(index);
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    final brightness = Theme.of(context).brightness;
+    return Card(
+      elevation: 0,
+      color: (brightness == Brightness.light) ? Colors.transparent : null,
+      margin: const EdgeInsets.all(0),
+      child: SafeArea(
         top: false,
         bottom: true,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _NavigatioBarItem(
-              index: 0,
-              label: 'Messages',
-              icon: Icons.chat,
-              onTap: handleItemSelected,
-              isSelected: (selectedIndex == 0),
-            ),
-            _NavigatioBarItem(
-              index: 1,
-              label: 'Notifications',
-              icon: Icons.notifications,
-              onTap: handleItemSelected,
-              isSelected: (selectedIndex == 1),
-            ),
-            _NavigatioBarItem(
-              index: 2,
-              label: 'Calls',
-              icon: Icons.call,
-              onTap: handleItemSelected,
-              isSelected: (selectedIndex == 2),
-            ),
-            _NavigatioBarItem(
-              index: 3,
-              label: 'Contacts',
-              icon: Icons.people,
-              onTap: handleItemSelected,
-              isSelected: (selectedIndex == 3),
-            ),
-          ],
-        ));
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 16,
+            left: 8,
+            right: 8,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _NavigatioBarItem(
+                index: 0,
+                label: 'Messages',
+                icon: Icons.chat,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 0),
+              ),
+              _NavigatioBarItem(
+                index: 1,
+                label: 'Notifications',
+                icon: Icons.notifications,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 1),
+              ),
+              _NavigatioBarItem(
+                index: 2,
+                label: 'Calls',
+                icon: Icons.call,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 2),
+              ),
+              _NavigatioBarItem(
+                index: 3,
+                label: 'Contacts',
+                icon: Icons.people,
+                onTap: handleItemSelected,
+                isSelected: (selectedIndex == 3),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
 class _NavigatioBarItem extends StatelessWidget {
-  const _NavigatioBarItem(
-      {Key? key,
-      required this.label,
-      required this.icon,
-      required this.index,
-      required this.onTap,
-      required this.isSelected})
-      : super(key: key);
+  const _NavigatioBarItem({
+    Key? key,
+    required this.label,
+    required this.icon,
+    required this.index,
+    required this.onTap,
+    required this.isSelected,
+  }) : super(key: key);
 
   final ValueChanged<int> onTap;
 
