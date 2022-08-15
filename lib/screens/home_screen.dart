@@ -1,5 +1,6 @@
 import 'package:chatter/pages/pages.dart';
 import 'package:chatter/theme.dart';
+import 'package:chatter/widgets/glowing_action_button.dart';
 import 'package:flutter/material.dart';
 
 import '../helpers.dart';
@@ -127,6 +128,18 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
                 onTap: handleItemSelected,
                 isSelected: (selectedIndex == 1),
               ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 4,
+                ),
+                child: GlowingActionButton(
+                    color: AppColors.secondary,
+                    icon: Icons.add,
+                    onPressed: () {
+                      print('TODO: ');
+                    }),
+              ),
               _NavigatioBarItem(
                 index: 2,
                 label: 'Calls',
@@ -174,7 +187,7 @@ class _NavigatioBarItem extends StatelessWidget {
         onTap(index);
       },
       child: SizedBox(
-        height: 70,
+        width: 70,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
