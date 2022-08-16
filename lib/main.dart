@@ -1,4 +1,5 @@
 import 'package:chatter/screens/screens.dart';
+import 'package:chatter/screens/select_user_screen.dart';
 import 'package:chatter/secrets.dart';
 import 'package:chatter/theme.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           child: child!,
         );
       },
-      home: HomeScreen(),
+      home: const SelectUserScreen(),
     );
   }
 }
