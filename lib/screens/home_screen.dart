@@ -1,8 +1,9 @@
 import 'package:chatter/pages/pages.dart';
+import 'package:chatter/screens/screens.dart';
 import 'package:chatter/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:chatter/app.dart';
 
-import '../helpers.dart';
 import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -48,7 +49,15 @@ class HomeScreen extends StatelessWidget {
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 24.0),
-                child: Avatar.small(url: Helpers.randomPictureUrl()),
+                child: Hero(
+                  tag: 'hero-profile-picture',
+                  child: Avatar.small(
+                    url: context.currentUserImage,
+                    onTap: () {
+                      Navigator.of(context).push(ProfileScreen.route);
+                    },
+                  ),
+                ),
               ),
             ],
             leadingWidth: 54,
