@@ -56,7 +56,11 @@ class _SelectUserScreenState extends State<SelectUserScreen> {
     return Scaffold(
       body: Center(
         child: (_loading)
-            ? const CircularProgressIndicator()
+            ? const SizedBox(
+                height: 100,
+                width: 100,
+                child: CircularProgressIndicator(),
+              )
             : Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
