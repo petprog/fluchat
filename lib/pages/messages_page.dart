@@ -206,10 +206,6 @@ class _MessageTile extends StatelessWidget {
         final lastMessageAt = data.toLocal();
         String stringDate;
         final now = DateTime.now();
-        final yD = now.subtract(const Duration(days: 1));
-        print(Jiffy(yD.toLocal()).jm);
-        print(Jiffy(yD.toLocal()).dateTime);
-
         final startOfDay = DateTime(now.year, now.month, now.day);
 
         if (lastMessageAt.millisecondsSinceEpoch >=
